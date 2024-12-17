@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart Clone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="cart"></script>
+    <style>
+        body {
+            background-color: rgb(249, 248, 248);
+            margin: 0;
+            padding: 0;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            transition: all 0.3s ease-in-out;
+        }
+        .col .card {
+            margin-right: 15px;
+            margin-bottom: 15px;
+            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        #header {
+            width: 100%;
+        }
+        .category-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+        .carousel img {
+            height: 300px;
+            object-fit: cover;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+        }
+        /* .card:hover {
+            transform: scale(1.05);
+            transition: all 0.3s ease-in-out;
+        } */
+        .product-title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .product-price {
+            font-size: 14px;
+            color: #ff5722;
+            font-weight: bold;
+        }
+        .product-rating {
+            font-size: 14px;
+            color: #388e3c;
+        }
+        .card img {
+            object-fit: contain;
+            height: 150px;
+        }
+        /* top story */
+             /* Styling for hover effects */
+             .top-story img:hover {
+            transform: scale(1.1);
+            transition: all 0.3s ease-in-out;
+        }
+        .brand-logo:hover {
+            opacity: 0.8;
+        }
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .brand-logo {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="logo.svg" alt="Logo" style="height: 40px;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <form class="d-flex mx-auto">
+                        <input class="form-control me-2" type="search" placeholder="Search Products, Brands & More">
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </form>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link text-dark" href="#"><i class="bi bi-person-circle"></i><b>Login</b></a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" href="#"><i class="bi bi-cart-check-fill"></i><b> Cart</b></a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" href="#"><i class="bi bi-shop"></i><b>Become a Seller</b></a></li>
+                                    <button class="btn btn-light" type="button" id="threeDotDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-three-dots-vertical" style="font-size: 20px;"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="threeDotDropdown">
+                                        <li><a class="dropdown-item" href="#">My Account</a></li>
+                                        <li><a class="dropdown-item" href="#">Orders</a></li>
+                                        <li><a class="dropdown-item" href="#">Wishlist</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                                    </ul>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Categories -->
+        <div class="container py-3">
+            <div class="row text-center">
+                <div class="col-6 col-sm-4 col-md-2">
+                    <a href="#" class="text-decoration-none text-dark category-item">
+                        <img src="Gro.webp" alt="Grocery">
+                        <p><b>Grocery</b></p>
+                    </a>
+                </div>
+                <div class="col-6 col-sm-4 col-md-2">
+                    <a href="#" class="text-decoration-none text-dark category-item">
+                        <img src="mob.webp" alt="Mobile">
+                        <p><b>Mobile</b></p>
+                    </a>
+                </div>
+                <div class="col-6 col-sm-4 col-md-2">
+                    <a href="#" class="text-decoration-none text-dark category-item">
+                        <img src="fly.webp" alt="Fashion">
+                        <p><b>Fashion</b></p>
+                    </a>
+                </div>
+                <div class="col-6 col-sm-4 col-md-2">
+                    <a href="#" class="text-decoration-none text-dark category-item">
+                        <img src="Gro.webp" alt="Electronics">
+                        <p><b>Electronics</b></p>
+                    </a>
+                </div>
+                <div class="col-6 col-sm-4 col-md-2">
+                    <a href="#" class="text-decoration-none text-dark category-item">
+                        <img src="mob.webp" alt="Home & Furniture">
+                        <p><b>Home & Furniture</b></p>
+                    </a>
+                </div>
+                <div class="col-6 col-sm-4 col-md-2">
+                    <a href="#" class="text-decoration-none text-dark category-item">
+                        <img src="ap.webp" alt="Appliance">
+                        <p><b>Appliance</b></p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel -->
+        <div class="container mb-4">
+            <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="cr1.webp" class="d-block w-100" alt="Slide 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="cr2.webp" class="d-block w-100" alt="Slide 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="cr3.webp" class="d-block w-100" alt="Slide 3">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Product Cards -->
+        <div class="container mb-4">
+            <h2 class="mb-3">Best of Electronics</h2>
+            <div class="row">
+                <div class="col-6 col-md-4 col-lg-3 mb-3">
+                    <div class="card">
+                        <img src="m1.jpg" class="card-img-top" alt="Product">
+                        <div class="card-body">
+                            <p class="card-text">Monitor <b>From @ 8999</b></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-3">
+                    <div class="card">
+                        <img src="sony monitor.jpg" class="card-img-top" alt="Product">
+                        <div class="card-body">
+                            <p class="card-text">Monitor <b>From @ 8999</b></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-3">
+                    <div class="card">
+                        <img src="i phone.jpg" class="card-img-top" alt="Product">
+                        <div class="card-body">
+                            <p class="card-text">I phone <b>From @ 49999</b></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-3">
+                    <div class="card">
+                        <img src="headphones.jpg" class="card-img-top" alt="Product">
+                        <div class="card-body">
+                            <p class="card-text">Headphones <b>From @ 2999</b></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- product cards -->
+        <div class="container mt-4">
+            <h2 class="mb-4">Shop Now :-</h2>
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                <!-- Product Card 1 -->
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="sony monitor.jpg" class="card-img-top" alt="Product 1">
+                        <div class="card-body">
+                            <p class="product-title">Samsung Monitor 24-inch</p>
+                            <p class="product-price">₹8,999</p>
+                            <p class="product-rating">⭐ 4.5 (2,123 reviews)</p>
+                            <button class="btn btn-primary w-100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card 2 -->
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="headphones.jpg" class="card-img-top" alt="Product 2">
+                        <div class="card-body">
+                            <p class="product-title">Sony Headphones WH-1000XM4</p>
+                            <p class="product-price">₹24,999</p>
+                            <p class="product-rating">⭐ 4.7 (1,245 reviews)</p>
+                            <button class="btn btn-primary w-100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card 3 -->
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="i phone.jpg" class="card-img-top" alt="Product 3">
+                        <div class="card-body">
+                            <p class="product-title">Apple iPhone 14</p>
+                            <p class="product-price">₹79,999</p>
+                            <p class="product-rating">⭐ 4.6 (4,322 reviews)</p>
+                            <button class="btn btn-primary w-100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card 4 -->
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="dell xps.jpg" class="card-img-top" alt="Product 4">
+                        <div class="card-body">
+                            <p class="product-title">Dell XPS 15 Laptop</p>
+                            <p class="product-price">₹1,34,999</p>
+                            <p class="product-rating">⭐ 4.8 (842 reviews)</p>
+                            <button class="btn btn-primary w-100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- product cards 2nd -->
+<div class="container mt-4">
+    <!-- <h2 class="mb-4">Shop Now :-</h2> -->
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <!-- Product Card 1 -->
+        <div class="col">
+            <div class="card h-100">
+                <img src="headphones.jpg" class="card-img-top" alt="Product 1">
+                <div class="card-body">
+                    <p class="product-title">Samsung Monitor 24-inch</p>
+                    <p class="product-price">₹8,999</p>
+                    <p class="product-rating">⭐ 4.5 (2,123 reviews)</p>
+                    <button class="btn btn-primary w-100">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <!-- Product Card 2 -->
+        <div class="col">
+            <div class="card h-100">
+                <img src="sony monitor.jpg" class="card-img-top" alt="Product 2">
+                <div class="card-body">
+                    <p class="product-title">Sony Headphones WH-1000XM4</p>
+                    <p class="product-price">₹24,999</p>
+                    <p class="product-rating">⭐ 4.7 (1,245 reviews)</p>
+                    <button class="btn btn-primary w-100">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <!-- Product Card 3 -->
+        <div class="col">
+            <div class="card h-100">
+                <img src="i phone.jpg" class="card-img-top" alt="Product 3">
+                <div class="card-body">
+                    <p class="product-title">Apple iPhone 14</p>
+                    <p class="product-price">₹79,999</p>
+                    <p class="product-rating">⭐ 4.6 (4,322 reviews)</p>
+                    <button class="btn btn-primary w-100">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <!-- Product Card 4 -->
+        <div class="col">
+            <div class="card h-100">
+                <img src="dell xps.jpg" class="card-img-top" alt="Product 4">
+                <div class="card-body">
+                    <p class="product-title">Dell XPS 15 Laptop</p>
+                    <p class="product-price">₹1,34,999</p>
+                    <p class="product-rating">⭐ 4.8 (842 reviews)</p>
+                    <button class="btn btn-primary w-100">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Top Story Sec- -->
+
+<div class="container mt-4">
+    <!-- Top Stories Section -->
+    <div>
+        <h2 class="section-title">Top Stories</h2>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <!-- Top Story 1 -->
+            <div class="col">
+                <div class="card top-story">
+                    <img src="el1.jpg" class="card-img-top" alt="Story 1">
+                    <div class="card-body">
+                        <p class="card-text">Exclusive Deals on Electronics</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Top Story 2 -->
+            <div class="col">
+                <div class="card top-story">
+                    <img src="el2.jpg" class="card-img-top" alt="Story 2">
+                    <div class="card-body">
+                        <p class="card-text">Fashion Festival: Up to 70% Off</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Top Story 3 -->
+            <div class="col">
+                <div class="card top-story">
+                    <img src="el3.jpg" class="card-img-top" alt="Story 3">
+                    <div class="card-body">
+                        <p class="card-text">Top Deals on Smartphones</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Top Story 4 -->
+            <div class="col">
+                <div class="card top-story">
+                    <img src="el2.jpg" class="card-img-top" alt="Story 4">
+                    <div class="card-body">
+                        <p class="card-text">Home Appliances at Best Prices</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Brand Directory Section -->
+    <div class="mt-5">
+        <h2 class="section-title">Brand Directory</h2>
+        <div class="row row-cols-2 row-cols-md-6 g-3">
+            <!-- Brand 1 -->
+            <div class="col text-center">
+                <img src="Samsung logo.png" class="brand-logo" alt="Brand 1">
+                <p>Samsung</p>
+            </div>
+            <!-- Brand 2 -->
+            <div class="col text-center">
+                <img src="apple logo.png" class="brand-logo" alt="Brand 2">
+                <p>Apple</p>
+            </div>
+            <!-- Brand 3 -->
+            <div class="col text-center">
+                <img src="one plus logo.png" class="brand-logo" alt="Brand 3">
+                <p>OnePlus</p>
+            </div>
+            <!-- Brand 4 -->
+            <div class="col text-center">
+                <img src="sony logo.png" class="brand-logo" alt="Brand 4">
+                <p>Sony</p>
+            </div>
+            <!-- Brand 5 -->
+            <div class="col text-center">
+                <img src="dell logo.png" class="brand-logo" alt="Brand 5">
+                <p>Dell</p>
+            </div>
+            <!-- Brand 6 -->
+            <div class="col text-center">
+                <img src="hp logo.png" class="brand-logo" alt="Brand 6">
+                <p>HP</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- end -->
+
+        <!-- Footer -->
+        <footer>
+            <div class="container text-center">
+                <p>&copy; 2024 Flipkart Clone. All rights reserved.</p>
+                <h3>Designed And Developed By Mohit Tripathi</h3>
+                <h4>Administrator Cybertech India.</h4>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
